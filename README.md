@@ -1,70 +1,85 @@
-# Getting Started with Create React App
+vv@@ -1,15 +1,16 @@
+# Ice Cream Builder - React JS Starter Application
+A basic template that consists of the essential elements that are required to start building a React application using [create-react-app](https://github.com/facebook/create-react-app).
+## Table of contents
+- [Installation](#installation)
+  - [Node JS](#node-js)
+  - [Create React App](#create-react-app)
+- [Editor setup](#editor-setup)
+  - [Plugins](#plugins)
+  - [Settings](#settings)
+  - [Set Line Breaks](#set-line-breaks)
+- [Linting & Auto Formatting setup](#linting-and-auto-formatting-setup)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Installation
+@@ -97,6 +98,12 @@ I would also recommend below settings for VS Code. You can edit the VS Code sett
+}
+```
 
-## Available Scripts
+### Set Line Breaks
 
-In the project directory, you can run:
+Make sure in your VS Code Editor, "LF" is selected as line feed instead of CRLF (Carriage return and line feed). To do that, just click LF/CRLF in bottom right corner of editor, click it and change it to "LF". If you dont do that, you will get errors in my setup.
 
-### `npm start`
+<img src="public/line-feed.jpg" alt="Line Feed" width="700">
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Linting and auto Formatting Setup
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Open terminal and cd into the project directory
+- enter below command
+```bash
+npx install-peerdeps --dev eslint-config-airbnb@18.1.0
+```
+- when the above one finishes, enter the below command
+```bash
+npm install prettier eslint-config-prettier eslint-plugin-prettier
+```
+- create 2 new files inside the project root folder called '.eslintrc' and '.eslintignore'
+- write below lines inside .eslintignore file
+```txt
+src/serviceWorker.js
+src/setupTests.js
+public/*
+```
+- write below lines inside .eslintrc file
+```txt
+{
+    "extends": [
+        "react-app",
+        "airbnb",
+        "airbnb/hooks",
+        "eslint:recommended",
+        "plugin:jsx-a11y/recommended",
+        "prettier",
+        "prettier/react"
+    ],
+    "plugins": [
+        "jsx-a11y",
+        "prettier"
+    ],
+    "rules": {
+        "no-console": "off",
+        "react/state-in-constructor": "off",
+        "react/prop-types": "off",
+        "jsx-a11y/click-events-have-key-events": "off",
+        "react/jsx-filename-extension": [
+            1,
+            {
+                "extensions": [
+                    ".js",
+                    ".jsx"
+                ]
+            }
+        ],
+        "prettier/prettier": [
+            "error",
+            {
+                "trailingComma": "es5",
+                "singleQuote": true,
+                "printWidth": 100,
+                "tabWidth": 4,
+                "semi": true
+            }
+        ]
+    }
+}
+```
